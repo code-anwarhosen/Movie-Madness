@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Website</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+    
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <a href="/" class="logo">
+            <i class='bx bxs-movie' ></i>Movie Madness
+        </a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+        <!-- menu  -->
+        <ul class="navbar">
+            <li><a href="/" class="home-active">Home</a></li>
+            <li><a href="#movies">Movies</a></li>
+            <li><a href="#coming">Coming</a></li>
+            <!-- <li><a href="#newsletter">Newsletter</a></li> -->
+            <li><input type="text"></li>
+        </ul>
+        <a href="#" class="btn">Sign In</a>
+    </header>
+    
+    <!-- Home -->
+    <section class="home swiper" id="home">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide container">
+                <img src="./img/home1.jpg" alt="">
+                <div class="home-text">
+                    <span>Marvel Universe</span>
+                    <h1>Guardians of the Galaxy<br> Volume 2</h1>
+                    <a href="#" class="btn">Book Now</a>
+                    <a href="#" class="play">
+                        <i class='bx bx-play'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="swiper-slide container">
+                <img src="./img/home4.png" alt="">
+                <div class="home-text">
+                    <span>Marvel Universe</span>
+                    <h1>Avengers: <br>End Game</h1>
+                    <a href="#" class="btn">Book Now</a>
+                    <a href="#" class="play">
+                        <i class='bx bx-play'></i>
+                    </a>
+                </div>
+            </div>
+               
+          </div>
+          <div class="swiper-pagination"></div>
+    </section>
+
+<!-- movies  -->
+<section class="movies" id="movies">
+      <h2 class="heading">Opening This Week</h2>
+      <!-- movies container  -->
+      <div class="movies-container">
+        <!-- box-1  -->
+        <div class="box">
+            <div class="box-img">
+                <img src="./img/m1.jpg" alt="">
+            </div>
+            <h3>Dr.Strange</h3>
+            <span>120 min | Action</span>
+        </div>
+
+      <!-- box-10  -->
+        <div class="box">
+            <div class="box-img">
+                <img src="./img/m10.jpg" alt="">
+            </div>
+            <h3>Mortal-Engines</h3>
+            <span>120 min | Action</span>
+        </div>
+      </div>
+</section>
+
+<!-- coming  -->
+<section class="coming" id="coming">
+    <h2 class="heading">Coming Soon</h2>
+    <!-- coming container  -->
+    <div class="coming-container swiper">
+       <div class="swiper-wrapper">
+         <!-- box-1  -->
+         <div class="swiper-slide box">
+            <div class="box-img">
+                <img src="./img/c1.jpg" alt="">
+            </div>
+            <h3>Ant-Man and the Wasp:Quantumania</h3>
+        </div>
+
+      <!-- box-10  -->
+        <div class="swiper-slide box">
+            <div class="box-img">
+                <img src="./img/c10.jpg" alt="">
+            </div>
+            <h3>Dune: Part Two</h3>
+        </div>
+       </div>
+    </div>
+</section>
+
+<!-- Newsletter  -->
+<!-- <section class="newsletter" id="newsletter">
+    <h2>Subscribe To Get <br>Newsletter</h2>
+    <form action="">
+        <input type="email" class="email" placeholder="Enter Email" required>
+        <input type="submit" value="Subscribe" class="btn">
+    </form>
+</section> -->
+
+<!-- Footer  -->
+<!-- <section class="footer">
+    <a href="" class="logo">
+        <i class="bx bxs-movie"></i>Sanamio
+    </a>
+    <div class="social">
+        <a href=""><i class='bx bxl-facebook'></i></a>
+        <a href=""><i class='bx bxl-twitter'></i></a>
+        <a href=""><i class='bx bxl-instagram'></i></a>
+    </div>
+</section> -->
+
+<!-- Copyright  -->
+ <div class="copyright">
+    <p>&#169; 2023 - ALl Right Reserved</p>
+ </div>
+
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="{% static 'home/script.js' %}"></script>
+
+</body>
+</html>
