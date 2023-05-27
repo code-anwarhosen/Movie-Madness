@@ -14,10 +14,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
+
 <div>
     <div class="back-button">
         <button onclick="javascript:history.go(-1)">Back</button>
     </div>
+
+    {% if movie %}
     <div style="margin-bottom: 5px; color: rgb(191, 197, 204);">
         {{movie.title}}
     </div>
@@ -63,7 +66,9 @@
         </div>
         <video src="\{{movie.link}}"></video>
     </div>
-
+    {% else %}
+    <h1 style="text-align: center; top: 50%;">Not Found</h1>
+    {% endif %}
 </div>
 
     <script src="{% static 'player/script.js' %}"></script>

@@ -312,6 +312,38 @@ section{
     color: var(--bg-color);
 }
 
+
+/* //////////////////// */
+.search{
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+}
+.search input{
+    width: 90%;
+    height: 30px;
+    border: none;
+    border-radius: 2px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #4e5153;
+    margin-right: 2px;
+    outline: none;
+}
+.search button{
+    width: 30%;
+    height: 30px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    background-color: rgb(194, 145, 96);
+}
+.search button:hover{
+    color: rgb(36, 33, 33);
+    background-color: aquamarine;
+}
+
+
  /* responsive  */
  @media (max-width :1080px){
     .home-text{

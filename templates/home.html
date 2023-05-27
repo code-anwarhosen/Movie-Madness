@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Website</title>
+    <title>Home | Movie Madness</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="{% static 'home/style.css' %}">
@@ -17,7 +17,7 @@
     <!-- Navbar -->
     <header>
         <a href="/" class="logo">
-            <i class='bx bxs-movie' ></i>Movie Madness
+            <i class='bx bxs-movie' ></i>MOVIE MADNESS
         </a>
         <div class="bx bx-menu" id="menu-icon"></div>
 
@@ -26,8 +26,13 @@
             <li><a href="/" class="home-active">Home</a></li>
             <li><a href="#movies">Movies</a></li>
             <li><a href="#coming">Coming</a></li>
-            <!-- <li><a href="#newsletter">Newsletter</a></li> -->
-            <li><input type="text"></li>
+            <li><a href="/admin/">admin</a></li>
+            <li>
+                <div class="search">
+                    <input type="text" name="query" placeholder="search movie">
+                    <button><i class='bx bx-search'></i></button>
+                </div>
+            </li>
         </ul>
         <a href="#" class="btn">Sign In</a>
     </header>
@@ -35,75 +40,96 @@
     <!-- Home -->
     <section class="home swiper" id="home">
         <div class="swiper-wrapper">
-            <div class="swiper-slide container">
-                <img src="./img/home1.jpg" alt="">
-                <div class="home-text">
-                    <span>Marvel Universe</span>
-                    <h1>Guardians of the Galaxy<br> Volume 2</h1>
-                    <a href="#" class="btn">Book Now</a>
-                    <a href="#" class="play">
-                        <i class='bx bx-play'></i>
-                    </a>
+            
+            {% if recently_added %}
+                {% for movie in recently_added %}
+                <div class="swiper-slide container">
+                    <img src="{{movie.thumbnail}}" alt="">
+                    <div class="home-text">
+                        <span>Recently Uploaded</span>
+                        <h1>{{movie.title}}</h1>
+                        <a href="/player/{{movie.pk}}" class="btn">Play Now</a>
+                        <a href="/player/{{movie.pk}}" class="play">
+                            <i class='bx bx-play'></i>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="swiper-slide container">
-                <img src="./img/home4.png" alt="">
-                <div class="home-text">
-                    <span>Recently Uploaded</span>
-                    <h1>Avengers: <br>End Game</h1>
-                    <a href="#" class="btn">Play Now</a>
-                    <a href="#" class="play">
-                        <i class='bx bx-play'></i>
-                    </a>
-                </div>
-            </div>
+                {% endfor %}
+            {% endif %}
                
           </div>
           <div class="swiper-pagination"></div>
     </section>
 
 <!-- movies  -->
+{% if movies %}
 <section class="movies" id="movies">
       <h2 class="heading">Movies</h2>
       <!-- movies container  -->
       <div class="movies-container">
 
         <!-- box -->
-        {% if movies %}
-            {% for movie in movies %}
-                <div class="box">
-                    <a href="/player/{{movie.pk}}">
-                    <div class="box-img">
-                        <img src="{{movie.thumbnail}}" alt="">
-                    </div>
-                    </a>
-                    <h3>{{movie.title}}</h3>
-                    <span>{{movie.duration}} min | {% for tag in movie.tags.all %} {{tag.name}}, {% endfor %}</span>
+        {% for movie in movies %}
+            <div class="box">
+                <a href="/player/{{movie.pk}}">
+                <div class="box-img">
+                    <img src="{{movie.thumbnail}}" alt="">
                 </div>
-            {% endfor %}
-        {% endif %}
+                </a>
+                <h3>{{movie.title}}</h3>
+                <span>{{movie.duration}} min | {% for tag in movie.tags.all %} {{tag.name}} {% endfor %}</span>
+            </div>
+        {% endfor %}
 
       </div>
 </section>
+{% endif %}
+
+<!-- Series  -->
+{% if series %}
+<section class="movies" id="movies">
+      <h2 class="heading">Web Series</h2>
+      <!-- movies container  -->
+      <div class="movies-container">
+
+        <!-- box -->
+        {% for movie in series %}
+            <div class="box">
+                <a href="/series/{{movie.pk}}">
+                <div class="box-img">
+                    <img src="\{{movie.thumbnail}}" alt="">
+                </div>
+                </a>
+                <h3>{{movie.title}}</h3>
+                <span>{{movie.duration}} min | {% for tag in movie.tags.all %} {{tag.name}} {% endfor %}</span>
+            </div>
+        {% endfor %}
+        
+      </div>
+</section>
+{% endif %}
 
 <!-- coming  -->
+{% if upcoming %}
 <section class="coming" id="coming">
-    <h2 class="heading">Coming Soon</h2>
+    <h2 class="heading">Upcoming</h2>
     <!-- coming container  -->
     <div class="coming-container swiper">
        <div class="swiper-wrapper">
         
-        <!-- box  -->
-         <div class="swiper-slide box">
+        {% for movie in upcoming %}
+        <div class="swiper-slide box">
             <div class="box-img">
-                <img src="./img/c1.jpg" alt="">
+                <img src="{{movie.thumbnail}}" alt="">
             </div>
-            <h3>Ant-Man and the Wasp:Quantumania</h3>
+            <h3>{{movie.title}}</h3>
         </div>
+        {% endfor %}
 
        </div>
     </div>
 </section>
+{% endif %}
 
 <!-- Newsletter  -->
 <!-- <section class="newsletter" id="newsletter">

@@ -1,10 +1,9 @@
 from django.contrib import admin
-from app.models import Catagory, Movie, Series
+from app.models import Catagory, Movie, Episode
 
 admin.site.register(Catagory)
-admin.site.register(Series)
+admin.site.register(Episode)
 
 class MovieAdmin(admin.ModelAdmin):
-    raw_id_fields = ['series_name']
     readonly_fields = ['uid']
 admin.site.register(Movie, MovieAdmin)
