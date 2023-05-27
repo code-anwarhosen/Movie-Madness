@@ -1,0 +1,1 @@
+This folders media file are being ignored to git
