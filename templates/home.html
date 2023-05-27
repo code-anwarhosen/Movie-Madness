@@ -49,9 +49,9 @@
             <div class="swiper-slide container">
                 <img src="./img/home4.png" alt="">
                 <div class="home-text">
-                    <span>Marvel Universe</span>
+                    <span>Recently Uploaded</span>
                     <h1>Avengers: <br>End Game</h1>
-                    <a href="#" class="btn">Book Now</a>
+                    <a href="#" class="btn">Play Now</a>
                     <a href="#" class="play">
                         <i class='bx bx-play'></i>
                     </a>
@@ -64,26 +64,25 @@
 
 <!-- movies  -->
 <section class="movies" id="movies">
-      <h2 class="heading">Opening This Week</h2>
+      <h2 class="heading">Movies</h2>
       <!-- movies container  -->
       <div class="movies-container">
-        <!-- box-1  -->
-        <div class="box">
-            <div class="box-img">
-                <img src="./img/m1.jpg" alt="">
-            </div>
-            <h3>Dr.Strange</h3>
-            <span>120 min | Action</span>
-        </div>
 
-      <!-- box-10  -->
-        <div class="box">
-            <div class="box-img">
-                <img src="./img/m10.jpg" alt="">
-            </div>
-            <h3>Mortal-Engines</h3>
-            <span>120 min | Action</span>
-        </div>
+        <!-- box -->
+        {% if movies %}
+            {% for movie in movies %}
+                <div class="box">
+                    <a href="/player/{{movie.pk}}">
+                    <div class="box-img">
+                        <img src="{{movie.thumbnail}}" alt="">
+                    </div>
+                    </a>
+                    <h3>{{movie.title}}</h3>
+                    <span>{{movie.duration}} min | {% for tag in movie.tags.all %} {{tag.name}}, {% endfor %}</span>
+                </div>
+            {% endfor %}
+        {% endif %}
+
       </div>
 </section>
 
@@ -93,7 +92,8 @@
     <!-- coming container  -->
     <div class="coming-container swiper">
        <div class="swiper-wrapper">
-         <!-- box-1  -->
+        
+        <!-- box  -->
          <div class="swiper-slide box">
             <div class="box-img">
                 <img src="./img/c1.jpg" alt="">
@@ -101,13 +101,6 @@
             <h3>Ant-Man and the Wasp:Quantumania</h3>
         </div>
 
-      <!-- box-10  -->
-        <div class="swiper-slide box">
-            <div class="box-img">
-                <img src="./img/c10.jpg" alt="">
-            </div>
-            <h3>Dune: Part Two</h3>
-        </div>
        </div>
     </div>
 </section>

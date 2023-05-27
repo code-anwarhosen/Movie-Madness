@@ -12,8 +12,8 @@
 /* Variables */
 :root{
     --main-color: #3f3534;
-    --text-color: #020307;
-    --bg-color: #857f7f;
+    --text-color: #3a3e41;
+    --bg-color: #cfbebe;
 }
 /* custom scroll  */
 html::-webkit-scrollbar{

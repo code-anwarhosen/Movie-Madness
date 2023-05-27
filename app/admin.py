@@ -6,4 +6,5 @@ admin.site.register(Series)
 
 class MovieAdmin(admin.ModelAdmin):
     raw_id_fields = ['series_name']
+    readonly_fields = ['uid']
 admin.site.register(Movie, MovieAdmin)
