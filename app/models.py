@@ -16,6 +16,8 @@ class Episode(models.Model):
     duration = models.IntegerField(null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True, editable=True)
 
+    class Meta:
+        ordering = ['timestamp']
     def __str__(self):
         return self.title
     def save(self, *args, **kwargs):

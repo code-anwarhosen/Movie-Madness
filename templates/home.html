@@ -48,10 +48,16 @@
                     <div class="home-text">
                         <span>Recently Uploaded</span>
                         <h1>{{movie.title}}</h1>
-                        <a href="/player/{{movie.pk}}" class="btn">Play Now</a>
-                        <a href="/player/{{movie.pk}}" class="play">
-                            <i class='bx bx-play'></i>
-                        </a>
+
+                        {% if movie.is_series %}
+                            <a href="/series/{{movie.pk}}" class="btn">Open Now</a>
+                        {% else %}
+                            <a href="/player/{{movie.pk}}" class="btn">Play Now</a>
+                            <a href="/player/{{movie.pk}}" class="play">
+                                <i class='bx bx-play'></i>
+                            </a>
+                        {% endif %}
+                        
                     </div>
                 </div>
                 {% endfor %}

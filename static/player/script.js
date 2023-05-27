@@ -118,6 +118,10 @@ fullScreenBtn.addEventListener("click", () => {
     }
     fullScreenBtn.classList.replace("fa-expand", "fa-compress");
     container.requestFullscreen();
+
+    if (screen.width < screen.height){
+        screen.orientation.lock("landscape-primary");
+    }
 });
 
 speedBtn.addEventListener("click", () => speedOptions.classList.toggle("show"));
