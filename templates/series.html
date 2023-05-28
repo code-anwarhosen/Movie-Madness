@@ -1,42 +1,9 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Series | Movie Madness</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="{% static 'home/style.css' %}">
-    
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-</head>
-<body>
-    <!-- Navbar -->
-    <header>
-        <a href="/" class="logo">
-            <i class='bx bxs-movie' ></i>MOVIE MADNESS
-        </a>
-        <div class="bx bx-menu" id="menu-icon"></div>
+{% block title %}Series{% endblock title %}
 
-        <!-- menu  -->
-        <ul class="navbar">
-            <li><a href="/" class="home-active">Home</a></li>
-            <li><a href="#movies">Movies</a></li>
-            <li><a href="#coming">Coming</a></li>
-            <li><a href="/admin/">admin</a></li>
-            <li>
-                <div class="search">
-                    <input type="text" name="query" placeholder="search movie">
-                    <button><i class='bx bx-search'></i></button>
-                </div>
-            </li>
-        </ul>
-        <a href="#" class="btn">Sign In</a>
-    </header>
-    
+{% block content %}
 <!-- Series  -->
 {% if series %}
 <section class="movies" id="movies" style="margin: 20px 0;">
@@ -62,13 +29,4 @@
 </section>
 {% endif %}
 
-<!-- Copyright  -->
- <div class="copyright">
-    <p>&#169; 2023 - ALl Right Reserved</p>
- </div>
-
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-  <script src="{% static 'home/script.js' %}"></script>
-</body>
-</html>
+{% endblock content %}

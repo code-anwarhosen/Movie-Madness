@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %} | Movie Madness</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+    
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <a href="/" class="logo">
+            <i class='bx bxs-movie' ></i>MOVIE MADNESS
+        </a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+        <!-- menu  -->
+        <ul class="navbar">
+            <li><a href="/" class="home-active">Home</a></li>
+            <li><a href="#movies">Movies</a></li>
+            <li><a href="#coming">Coming</a></li>
+            <li><a href="/admin/">admin</a></li>
+            <li>
+                <div class="search">
+                    <form class="search" action="/search" method="get">
+                        <input type="text" name="q" placeholder="search movie">
+                        <button type="submit"><i class='bx bx-search'></i></button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+        <a href="#" class="btn">Sign In</a>
+    </header>
+
+{% block content %}{% endblock content %}
+
+
+<!-- Newsletter  -->
+<!-- <section class="newsletter" id="newsletter">
+    <h2>Subscribe To Get <br>Newsletter</h2>
+    <form action="">
+        <input type="email" class="email" placeholder="Enter Email" required>
+        <input type="submit" value="Subscribe" class="btn">
+    </form>
+</section> -->
+
+<!-- Footer  -->
+<!-- <section class="footer">
+    <a href="" class="logo">
+        <i class="bx bxs-movie"></i>Sanamio
+    </a>
+    <div class="social">
+        <a href=""><i class='bx bxl-facebook'></i></a>
+        <a href=""><i class='bx bxl-twitter'></i></a>
+        <a href=""><i class='bx bxl-instagram'></i></a>
+    </div>
+</section> -->
+
+<!-- Copyright  -->
+<div class="copyright">
+    <p>&#169; 2023 - ALl Right Reserved</p>
+ </div>
+
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="{% static 'home/script.js' %}"></script>
+
+</body>
+</html>

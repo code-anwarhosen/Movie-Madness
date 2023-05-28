@@ -19,6 +19,15 @@ def series(request, pk):
     web_s = Movie.objects.get(pk=pk)
     return render(request, 'series.html', {'series': web_s})
 
+def search(request):
+    q = request.GET.get('q')
+
+    result = None
+    if q and len(q) < 200:
+        result = Movie.objects.filter(title__icontains=q)
+
+    return render(request, 'search.html', {'movies': result})
+
 def player(request, pk):
     ref = request.GET.get('ref')
 

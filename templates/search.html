@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Search{% endblock title %}
+
+{% block content %}
+<!-- search  -->
+<section class="movies" id="movies">
+      <h2 class="heading">Search Result: </h2>
+      <!-- movies container  -->
+      <div class="movies-container">
+
+        <!-- box -->
+        {% if movies %}
+        {% for movie in movies %}
+            <div class="box">
+
+                {% if movie.is_series %}
+                    <a href="/series/{{movie.pk}}">
+                {% else %}
+                    <a href="/player/{{movie.pk}}">
+                {% endif %}
+                <div class="box-img">
+                    <img src="\{{movie.thumbnail}}" alt="">
+                </div>
+                </a>
+                <h3>{{movie.title}}</h3>
+                <span>{{movie.duration}} min | {% for tag in movie.tags.all %} {{tag.name}} {% endfor %}</span>
+            </div>
+        {% endfor %}
+        {% else %}
+            <h1 style="text-align: center; top: 50vh;">Not Found</h1>
+        {% endif %}
+
+      </div>
+</section>
+
+{% endblock content %}
