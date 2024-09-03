@@ -6,4 +6,5 @@ admin.site.register(Episode)
 
 class MovieAdmin(admin.ModelAdmin):
     readonly_fields = ['uid']
+    ordering = ['-timestamp']
 admin.site.register(Movie, MovieAdmin)

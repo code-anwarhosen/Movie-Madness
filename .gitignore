@@ -1,2 +1,2 @@
-/media/movies/*.mkv
-/media/series/*.mkv
+*.mkv
+*.mp4

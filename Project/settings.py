@@ -8,8 +8,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+%rr+e1739!r_k6%z3c-vbian8a9)i8yxk-)-_=bkpoge^#*wh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1', '192', '192.168.0.109']
+DEBUG = False
+ALLOWED_HOSTS = ['anwarhosen.xyz', 'www.anwarhosen.xyz', '100.104.130.45', '192.168.1.99', 'localhost']
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://anwarhosen.xyz',
+    'https://www.anwarhosen.xyz',
+    'https://192.168.1.99:8080',
+]
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -88,14 +95,12 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'static/'
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media/'
 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

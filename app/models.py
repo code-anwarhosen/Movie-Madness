@@ -38,7 +38,7 @@ class Episode(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True, editable=True)
 
     class Meta:
-        ordering = ['timestamp']
+        ordering = ['-timestamp']
 
     def __str__(self):
         return self.title
@@ -46,7 +46,8 @@ class Episode(models.Model):
     def save(self, *args, **kwargs):
         title = self.link
         if title:
-            self.title = title.split('\\')[-1]
+            # self.title = title.split('\\')[-1]
+            self.title = os.path.basename(title)
         try:
             if self.link:
                 self.size = get_size(self.link)
@@ -59,9 +60,9 @@ class Movie(models.Model):
     uid = models.UUIDField(primary_key=True, unique=True, default=uuid4, editable=False)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     
-    link = models.FilePathField(path='media\\movies', match=None, recursive=True, null=True, blank=True)
+    link = models.FilePathField(path='media/movies', match=None, recursive=True, null=True, blank=True)
     title = models.CharField(max_length=500, null=True, blank=True)
-    thumbnail = models.FilePathField(path='media\\thumbnails', match=None, recursive=True, null=True, blank=True)
+    thumbnail = models.FilePathField(path='media/thumbnails', match=None, recursive=True, null=True, blank=True)
 
     size = models.IntegerField(null=True, blank=True)
     duration = models.IntegerField(null=True, blank=True)
@@ -73,7 +74,7 @@ class Movie(models.Model):
     is_published = models.BooleanField(default=True, null=True, blank=True)
 
     class Meta:
-        ordering = ['title', 'timestamp']
+        ordering = ['-timestamp']
 
     def __str__(self):
         return self.title
@@ -81,7 +82,8 @@ class Movie(models.Model):
     def save(self, *args, **kwargs):
         title = self.link
         if title:
-            self.title = title.split('\\')[-1]
+            # self.title = title.split('\\')[-1]
+            self.title = os.path.basename(title)
         try:
             if self.link:
                 self.size = get_size(self.link)
