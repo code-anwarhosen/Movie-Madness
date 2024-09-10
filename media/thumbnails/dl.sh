@@ -1,1 +1,0 @@
-/home/anwar/WEB/tmp/dl.sh

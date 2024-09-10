@@ -30,9 +30,9 @@ class Catagory(models.Model):
 
 class Episode(models.Model):
     uid = models.UUIDField(primary_key=True, unique=True, default=uuid4, editable=False)
-    link = models.FilePathField(path='media\\series', match=None, recursive=True, null=True, blank=True)
+    link = models.FilePathField(path='media/series', match=None, recursive=True, null=True, blank=True)
     title = models.CharField(max_length=500, blank=True)
-    thumbnail = models.FilePathField(path='media\\thumbnails', match=None, recursive=True, null=True, blank=True)
+    thumbnail = models.FilePathField(path='media/thumbnails', match=None, recursive=True, null=True, blank=True)
     size = models.IntegerField(null=True, blank=True)
     duration = models.IntegerField(null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True, editable=True)
